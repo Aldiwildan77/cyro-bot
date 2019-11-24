@@ -1,12 +1,20 @@
 const Express = require('express')
+const http = require('http')
 const app = Express()
 
 // start discord bot engine
 require('./lib/core/engine')
 
-const { NODE_ENV, PORT } = require('./conf/config')
+const { NODE_ENV, PORT, HOSTNAME } = require('./conf/config')
 
-// Endpoint 
+// keep heroku server alive
+const countdown = 20 * 60 * 1000
+setInterval(() => {
+	http.get(HOSTNAME)
+	console.log('calling heroku server')
+}, countdown)
+
+// Endpoint
 app.get('/', (req, res) => {
 	res.status(200).json({
 		status: 'success',

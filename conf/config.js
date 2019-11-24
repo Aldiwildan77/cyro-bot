@@ -7,5 +7,6 @@ const credentials = {
 }
 
 const PORT = process.env.PORT
+const HOSTNAME = process.env.HOSTNAME || 'localhost'
 
-module.exports = { credentials, PORT, NODE_ENV }
+module.exports = { credentials, PORT, HOSTNAME, NODE_ENV }
