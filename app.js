@@ -1,42 +1,31 @@
-const { Client, Util } = require('discord.js')
-const client = new Client()
+const Express = require('express')
+const app = Express()
 
-// config
-const { credentials } = require('./conf/config')
+// start discord bot engine
+require('./lib/core/engine')
 
-// Login to discord
-client.login(credentials.discord_token)
+const { NODE_ENV, PORT } = require('./conf/config')
 
-// core lib
-const CommandRegistry = require('./lib/core/command.registry')
-
-// listeners
-const HelpCommand = require('./lib/listeners/help.listener')
-const MusicCommand = require('./lib/listeners/music.listener')
-const UtilsCommand = require('./lib/listeners/utils.listener')
-
-// events
-client.on('ready', () => {
-	console.log('Logged in as %s\n', client.user.username)
+// Endpoint 
+app.get('/', (req, res) => {
+	res.status(200).json({
+		status: 'success',
+		message: 'Hi everyone, enjoy your life',
+	})
 })
 
-client.on('message', message => {
-	const registry = new CommandRegistry(client, message)
-
-	if (!registry.isUsingPrefix(message)) return
-
-	registry.registerMentionCommand('help', () => new HelpCommand(client, message).reply())
-	registry.registerMentionCommand('music', () => new MusicCommand(client, message, Util).reply())
-	registry.registerMentionCommand('join', () => new UtilsCommand(client, message).join())
-	registry.registerMentionCommand('leave', () => new UtilsCommand(client, message).leave())
-	registry.registerMentionCommand('ping', () => new UtilsCommand(client, message).ping())
-
+app.use((req, res, next) => {
+	const error = new Error('Not Found - ' + req.originalUrl)
+	res.status(404)
+	next(error)
 })
 
-client.on('warn', () => console.warn)
+app.use((error, req, res) => {
+	res.status(res.status || 500)
+	res.json({
+		message: error.message,
+		error: NODE_ENV === 'production' ? {} : error.stack,
+	})
+})
 
-client.on('error', () => console.error)
-
-client.on('reconnecting', () => console.log('I\'m reconnecting!'))
-
-client.on('disconnect', () => console.log('I\'m just disconnected, i will reconnect now..'));
+app.listen(PORT, () => console.log('Server is running at PORT %s', PORT))

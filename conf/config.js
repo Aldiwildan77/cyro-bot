@@ -6,4 +6,6 @@ const credentials = {
 	youtube_token: process.env.YOUTUBE_TOKEN,
 }
 
-module.exports = { credentials }
+const PORT = process.env.PORT
+
+module.exports = { credentials, PORT, NODE_ENV }
