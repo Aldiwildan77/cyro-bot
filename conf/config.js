@@ -6,7 +6,7 @@ const credentials = {
 	youtube_token: process.env.YOUTUBE_TOKEN,
 }
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 5015
 const HOSTNAME = process.env.HOSTNAME || 'localhost'
 
 module.exports = { credentials, PORT, HOSTNAME, NODE_ENV }
