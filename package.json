@@ -25,15 +25,17 @@
 	"homepage": "https://github.com/Aldiwildan77/cyro-bot#readme",
 	"dependencies": {
 		"discord.js": "^11.5.1",
-		"eslint": "^6.7.0",
+		"eslint": "^6.7.1",
 		"express": "^4.17.1",
 		"ffmpeg": "0.0.4",
-		"opusscript": "0.0.7",
+		"ffmpeg-binaries": "^4.0.0",
+		"node-opus": "^0.3.3",
 		"simple-youtube-api": "^5.2.1",
-		"ytdl-core": "^1.0.1"
+		"ytdl-core": "^1.0.2"
 	},
 	"devDependencies": {
 		"dotenv": "^8.2.0",
-		"nodemon": "^2.0.1"
+		"nodemon": "^2.0.1",
+		"opusscript": "0.0.7"
 	}
 }
