@@ -28,14 +28,14 @@
 		"eslint": "^6.7.1",
 		"express": "^4.17.1",
 		"ffmpeg": "0.0.4",
-		"node-opus": "^0.3.3",
+		"opusscript": "0.0.7",
 		"simple-youtube-api": "^5.2.1",
 		"ytdl-core": "^1.0.2"
 	},
 	"devDependencies": {
 		"dotenv": "^8.2.0",
 		"ffmpeg-binaries": "^4.0.0",
-		"nodemon": "^2.0.1",
-		"opusscript": "0.0.7"
+		"node-opus": "^0.3.3",
+		"nodemon": "^2.0.1"
 	}
 }
