@@ -1,12 +1,12 @@
-const NODE_ENV = process.env.NODE_ENV || 'development'
-if (NODE_ENV === 'development') require('dotenv').config()
+const NODE_ENV = process.env.NODE_ENV || 'development';
+if (NODE_ENV === 'development') require('dotenv').config();
 
 const credentials = {
 	discord_token: process.env.AUTH_TOKEN,
 	youtube_token: process.env.YOUTUBE_TOKEN,
-}
+};
 
-const PORT = process.env.PORT || 5015
-const HOSTNAME = process.env.HOSTNAME || 'localhost'
+const PORT = process.env.PORT || 5015;
+const HOSTNAME = process.env.HOSTNAME || 'localhost';
 
-module.exports = { credentials, PORT, HOSTNAME, NODE_ENV }
+module.exports = { credentials, PORT, HOSTNAME, NODE_ENV };
