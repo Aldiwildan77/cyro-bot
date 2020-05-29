@@ -8,11 +8,11 @@ require('./lib/core/engine');
 const { NODE_ENV, PORT, HOSTNAME } = require('./conf/config');
 
 // keep heroku server alive
-const countdown = 20 * 60 * 1000;
-setInterval(() => {
-	http.get(HOSTNAME);
-	console.log('calling heroku server')
-}, countdown);
+// const countdown = 20 * 60 * 1000;
+// setInterval(() => {
+// 	http.get(HOSTNAME);
+// 	console.log('calling heroku server')
+// }, countdown);
 
 // Endpoint
 app.get('/', (req, res) => {
