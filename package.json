@@ -29,7 +29,7 @@
 	"dependencies": {
 		"discord.js": "^11.5.1",
 		"eslint": "^6.7.1",
-		"express": "^4.17.1",
+		"express": "^4.17.3",
 		"ffmpeg": "0.0.4",
 		"opusscript": "0.0.7",
 		"simple-youtube-api": "^5.2.1",
